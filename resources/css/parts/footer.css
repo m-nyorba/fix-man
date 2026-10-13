@@ -1,0 +1,27 @@
+/* Footer template-part styles. */
+
+footer.wp-block-template-part {
+  margin-top: 0;
+  /* margin-block-start: var(--wp--preset--spacing--x-small); */
+}
+
+footer .site-logo-img img,
+footer .wp-block-site-logo img,
+footer .wp-block-site-logo.is-default-size img {
+  width: 4rem;
+}
+
+footer .wp-block-navigation__container {
+  column-gap: 0.75rem;
+}
+
+/* Hide submenu icon on hover. */
+footer
+  .wp-block-navigation-item.open-on-click
+  .wp-block-navigation-submenu__toggle {
+  padding-right: 0;
+}
+
+footer .wp-block-navigation .wp-block-navigation__submenu-icon {
+  display: none;
+}

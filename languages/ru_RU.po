@@ -1,0 +1,403 @@
+# Copyright (C) 2026 mnjorba
+# This file is distributed under the same license as the Fix Man theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fix Man 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/fix-man\n"
+"POT-Creation-Date: 2026-09-28T18:48:58+03:00\n"
+"PO-Revision-Date: 2026-09-28 18:52+0300\n"
+"Last-Translator: \n"
+"Language-Team: MNor <mnyorba@gmail.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Domain: fix-man\n"
+
+#. Theme Name of the theme
+#: style.css:2
+msgid "Fix Man"
+msgstr ""
+
+#. Description of the theme
+#: style.css:4
+msgid ""
+"Child theme for Spectra One with custom design tokens and local Manrope/"
+"Golos fonts."
+msgstr ""
+
+#. Author of the theme
+#: style.css:3
+msgid "mnjorba"
+msgstr ""
+
+#: inc/patterns.php:16
+msgid "Fix-Man"
+msgstr ""
+
+#: patterns/blog-page-content.php:3
+msgctxt "Pattern title"
+msgid "Blog Page Content"
+msgstr ""
+
+#: patterns/blog-page-content.php:7
+msgctxt "Pattern description"
+msgid "Displays the content of the page selected as the posts page."
+msgstr ""
+
+#: patterns/breadcrumbs.php:3
+msgctxt "Pattern title"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: patterns/footer-uk.php:3
+msgctxt "Pattern title"
+msgid "Footer (UA)"
+msgstr ""
+
+#: patterns/footer-uk.php:54 patterns/footer.php:54
+#, php-format
+msgid "© %d"
+msgstr ""
+
+#: patterns/footer.php:3
+msgctxt "Pattern title"
+msgid "Footer (Default RU)"
+msgstr ""
+
+#: patterns/header-uk.php:3
+msgctxt "Pattern title"
+msgid "Header (UA)"
+msgstr ""
+
+#: patterns/header-uk.php:37 patterns/header.php:37
+msgid "We accept requests around the clock"
+msgstr "Принимаем заявки круглосуточно"
+
+#: patterns/header.php:3
+msgctxt "Pattern title"
+msgid "Header (Default RU)"
+msgstr ""
+
+#: patterns/hero-single.php:3
+msgctxt "Pattern title"
+msgid "Hero single title"
+msgstr ""
+
+#: patterns/post-latest.php:3
+msgctxt "Pattern title"
+msgid "Latest Post"
+msgstr ""
+
+#: patterns/post-latest.php:13
+msgid "Useful Articles"
+msgstr "Полезные статьи"
+
+#: patterns/post-latest.php:17
+msgid "Tips on using and caring for home appliances."
+msgstr "Советы по эксплуатации и уходу за бытовой техникой."
+
+#: patterns/post-latest.php:28 patterns/template-index.php:51
+msgid "Read article"
+msgstr "Читать статью"
+
+#: patterns/post-latest.php:34
+msgid "View all articles"
+msgstr "Смотреть все статьи"
+
+#: patterns/template-index.php:3
+msgctxt "Pattern title"
+msgid "Template index"
+msgstr ""
+
+#: patterns/template-index.php:19
+msgid "Blog"
+msgstr "Статьи"
+
+#: patterns/template-index.php:24
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Heading"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Body"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Quaternary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Outline"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dark Blue"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Info"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Success"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warning"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Error"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XXX Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XX Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X Small Plus"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X Large Plus"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XX Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Manrope"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Golos Text"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "X Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "X Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XX Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XXX Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XXXX Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Shadow 1"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Shadow 2"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Shadow 3"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Shadow Up"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Ring"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page sidebar"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single sidebar"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header (Default RU)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header (UA)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer (Default RU)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer (UK)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Sidebar"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "General"
+msgstr ""
+
+#~ msgid "Call"
+#~ msgstr "Позвонить"

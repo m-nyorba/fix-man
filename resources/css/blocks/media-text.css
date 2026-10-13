@@ -1,0 +1,8 @@
+/**
+ * @file media-text.css
+ * --- Media & Text block styles ---
+ */
+
+.wp-block-media-text {
+  gap: var(--wp--preset--spacing--medium);
+}

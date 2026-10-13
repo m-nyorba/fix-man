@@ -1,0 +1,32 @@
+/* Header template-part styles. */
+
+header.wp-block-template-part {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 100;
+}
+header.wp-block-template-part > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-1);
+}
+
+header.wp-block-template-part.is-scrolled > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-2);
+}
+
+header.wp-block-template-part.is-scrolled {
+  background: transparent;
+}
+
+header.wp-block-template-part .site-logo-img img {
+  width: 4rem;
+  transition: width var(--wp--custom--transition--slower);
+}
+header.wp-block-template-part.is-scrolled .site-logo-img img {
+  width: 3.5rem;
+}
+
+.yoast-breadcrumbs {
+  padding-top: var(--wp--preset--spacing--small);
+  max-width: var(--wp--style--global--wide-size);
+}

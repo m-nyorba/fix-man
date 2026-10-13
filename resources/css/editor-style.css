@@ -1,0 +1,29 @@
+/**
+ * @file editor-style.css
+ * @package fix-man
+ * @subpackage css
+ * @since 1.0.0
+ * @author mnjorba
+ *
+ * Editor-specific stylesheet for the Fix Man theme.
+ * Imports tokens and components to ensure the editor matches the frontend.
+ */
+
+/* --- # Base --- */
+@import "./base.css";
+
+/* --- # Template Parts --- */
+@import "./parts/header.css";
+@import "./parts/navigation.css";
+@import "./parts/overlay-menu-fix.css";
+@import "./parts/content.css";
+@import "./parts/footer.css";
+
+/* --- # Blocks --- */
+@import "./blocks/accordion.css";
+@import "./blocks/cta.css";
+@import "./blocks/buttons.css";
+@import "./blocks/media-text.css";
+@import "./blocks/services-pricelist.css";
+@import "./blocks/slider.css";
+@import "./blocks/table.css";

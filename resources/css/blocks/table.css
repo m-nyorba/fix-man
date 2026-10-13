@@ -1,0 +1,8 @@
+/**
+ * @file table.css
+ * --- Table block styles ---
+ */
+
+.wp-block-table thead th {
+  font-weight: var(--wp--custom--font-weight--regular);
+}

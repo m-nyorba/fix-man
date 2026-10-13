@@ -1,0 +1,734 @@
+/**
+ * @file editor-style.css
+ * @package fix-man
+ * @subpackage css
+ * @since 1.0.0
+ * @author mnjorba
+ *
+ * Editor-specific stylesheet for the Fix Man theme.
+ * Imports tokens and components to ensure the editor matches the frontend.
+ */
+
+/* --- # Base --- */
+
+/**
+ * @file base.css
+ * --- Base theme styles ---
+ */
+
+/* link styles */
+a:where(:not(.wp-element-button)) {
+  color: var(--wp--preset--color--primary);
+  transition: color var(--wp--custom--transition--normal);
+}
+:root
+  :where(a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):hover),
+:root
+  :where(a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):focus),
+:root
+  :where(
+    a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):active
+  ) {
+  color: var(--wp--preset--color--secondary) !important;
+}
+
+:root :where(header a) {
+  text-decoration: none;
+}
+
+:root :where(footer a),
+:root
+  footer
+  .wp-block-navigation
+  .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  color: var(--wp--preset--color--primary);
+  /* color: var(--wp--preset--color--foreground); */
+  text-decoration: none;
+}
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:hover
+  ),
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:focus
+  ),
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:active
+  ) {
+  color: var(--wp--preset--color--secondary) !important;
+}
+
+:root :where(img:not(header img, footer img)),
+:root
+  :where(
+    .wp-block-cover .has-background-dim:not([class*="-background-color"])
+  ) {
+  border-radius: var(--wp--custom--border-radius--large);
+}
+
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ) {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition:
+    color var(--wp--custom--transition--fast),
+    text-decoration-thickness var(--wp--custom--transition--fast);
+}
+
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):hover,
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):focus,
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):active {
+  text-decoration-thickness: 2px;
+}
+
+/** --- # Global padding --- */
+.wp-block-group.is-layout-flow.wp-block-group-is-layout-flow {
+  padding-left: 0;
+  padding-right: 0;
+}
+.has-global-padding > .alignfull {
+  padding-left: 0;
+  padding-right: 0;
+}
+.has-global-padding {
+  padding-right: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-left);
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* remove animations on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* --- # Template Parts --- */
+/* Header template-part styles. */
+
+header.wp-block-template-part {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 100;
+}
+header.wp-block-template-part > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-1);
+}
+
+header.wp-block-template-part.is-scrolled > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-2);
+}
+
+header.wp-block-template-part.is-scrolled {
+  background: transparent;
+}
+
+header.wp-block-template-part .site-logo-img img {
+  width: 4rem;
+  transition: width var(--wp--custom--transition--slower);
+}
+header.wp-block-template-part.is-scrolled .site-logo-img img {
+  width: 3.5rem;
+}
+
+.yoast-breadcrumbs {
+  padding-top: var(--wp--preset--spacing--small);
+  max-width: var(--wp--style--global--wide-size);
+}
+
+/**
+ * @file navigation.css
+ * --- Navigation ---
+ */
+
+/* Force mobile state up to 919px fo responsive navigation */
+.wp-block-navigation__responsive-container-open {
+  display: none !important;
+}
+
+/* Show the hamburger button that WordPress hides after 920px */
+@media (max-width: 919px) {
+  /* Hide the desktop container that WordPress tries to show after 920px */
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: none !important;
+  }
+  /* Show the hamburger button that WordPress hides after 920px */
+  .wp-block-navigation__responsive-container-open {
+    display: flex !important;
+  }
+}
+
+/* Activate desktop view only after 919px */
+@media (min-width: 920px) {
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    z-index: auto;
+  }
+
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display: none !important;
+  }
+}
+/** Desktop menu */
+
+.wp-block-navigation:not(.has-background)
+  .wp-block-navigation__submenu-container {
+  padding: 0 var(--wp--preset--spacing--xx-small);
+  min-width: 320px !important;
+  max-height: calc(100vh - var(--header-height, 70px) * 2);
+  overflow-y: auto !important;
+}
+
+.wp-block-navigation__container
+  .has-child
+  .wp-block-navigation__submenu-container
+  .wp-block-navigation-item:not(:last-of-type) {
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+/** Overlay menu */
+.wp-block-navigation__overlay-container .wp-block-navigation__container {
+  gap: 1rem;
+}
+/* Chenge the way navigation is displayed in overlay menu for submenus */
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0; /* Ensure there is no spacing between elements */
+}
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(1),
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(2) {
+  flex: 0 0 auto;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(3) {
+  width: 100%;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation
+  .wp-block-navigation__submenu-container {
+  position: relative;
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item {
+  justify-content: center;
+  width: 100%;
+  padding-bottom: var(--wp--preset--spacing--xxx-small);
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  .wp-block-navigation-item
+  .wp-block-navigation-item__content {
+  align-items: center;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+  left: auto;
+}
+
+/**
+ * @file overlay-menu.css
+ * --- Overlay Menu template-part styles ---
+ */
+/* --- // Fix for proper submenu functionality on mobile devices(overlay menu) --- */
+/* --- СТАТИЧНЕ ПРИХОВУВАННЯ ПІДМЕНЮ ЗА ДАТА-АТРИБУТОМ --- */
+/* 1. За замовчуванням та при станi "closed" — підменю приховано */
+/* html body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu, */
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle[data-submenu-state="closed"]
+  ~ .wp-block-navigation-submenu,
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle:not([data-submenu-state="open"])
+  ~ .wp-block-navigation-submenu {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: opacity var(--wp--custom--transition--normal);
+}
+/**
+ * @file content.css
+ * --- Content template-part styles ---
+ */
+
+/* Hide page banner  */
+/* .wp-block-group.swt-block-page-banner-group, */
+.wp-block-group.swt-block-featured-image {
+  display: none;
+}
+
+/* Hide post author on single page */
+:where(body.single .wp-block-group):has(.wp-block-post-author) {
+  display: none;
+}
+
+/* Fix for margin on main content with post banner */
+:root
+  :where(
+    body:not(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--medium) * -1) !important;
+}
+
+/* :root
+  :where(
+    body:where(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--small) * -1) !important;
+} */
+
+/* Fix for duplicate margin on main content */
+/* :root :where(body.single .entry-content) {
+  margin-block-start: 0;
+} */
+:root :where(body .entry-content) {
+  margin-block-start: var(--wp--preset--spacing--large) !important;
+}
+
+/* :root :where(.is-layout-flow) > .entry-content:first-child {
+  margin-top: 2rem;
+} */
+
+/** Fix for alignright/alignleft. */
+.is-layout-constrained > .alignright {
+  float: right;
+  margin-inline-end: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignleft {
+  float: left;
+  margin-inline-start: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignright img,
+.is-layout-constrained > .alignleft img {
+  max-width: 100%;
+  height: auto;
+}
+
+.is-layout-constrained::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 600px) {
+  .is-layout-constrained > .alignright,
+  .is-layout-constrained > .alignleft {
+    float: none;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
+
+/* Fix for columns 3 on tablet for posts page(blog) */
+@media (min-width: 600px) and (max-width: 1279px) {
+  .columns-3.wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Footer template-part styles. */
+
+footer.wp-block-template-part {
+  margin-top: 0;
+  /* margin-block-start: var(--wp--preset--spacing--x-small); */
+}
+
+footer .site-logo-img img,
+footer .wp-block-site-logo img,
+footer .wp-block-site-logo.is-default-size img {
+  width: 4rem;
+}
+
+footer .wp-block-navigation__container {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
+/* Hide submenu icon on hover. */
+footer
+  .wp-block-navigation-item.open-on-click
+  .wp-block-navigation-submenu__toggle {
+  padding-right: 0;
+}
+
+footer .wp-block-navigation .wp-block-navigation__submenu-icon {
+  display: none;
+}
+
+/* --- # Blocks --- */
+
+/**
+ * @file accordion.css
+ * --- Accordion block styles ---
+ */
+
+.wp-block-accordion .wp-block-accordion-item {
+  background-color: var(--wp--preset--color--quaternary);
+  border: 1px solid var(--wp--preset--color--tetriary);
+  padding: var(--wp--preset--spacing--small);
+  border-radius: var(--wp--custom--border-radius--extra-large);
+  transition: background-color var(--wp--custom--transition--normal);
+}
+
+.wp-block-accordion
+  .wp-block-accordion-item
+  .wp-block-accordion-heading__toggle-title {
+  /* color: var(--wp--preset--color--body); */
+  font-weight: var(--wp--custom--font-weight--regular);
+  font-size: var(--wp--preset--font-size--medium);
+}
+.wp-block-accordion .wp-block-accordion-item.is-open {
+  background-color: var(--wp--preset--color--surface);
+}
+
+.wp-block-accordion .wp-block-accordion-heading__toggle-icon {
+  font-size: var(--wp--preset--font-size--x-large);
+}
+
+/**
+ * @file cta.css
+ * --- CTA block styles ---
+ */
+
+.wp-block-cta.wp-block-cover .wp-block-cover__background {
+  backdrop-filter: blur(47px);
+  opacity: 1 !important;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/**
+ * @file buttons.css
+ * --- Buttons block styles ---
+ */
+
+/* Common styles for buttons */
+:root :where(.wp-element-button, .wp-block-button__link) {
+  background-color: var(--wp--preset--color--secondary);
+}
+
+/* Keep button labels on one line and animate visual state changes. */
+:root :where(.wp-element-button),
+:root
+  :where(.wp-block-button.is-style-outline .wp-block-button__link)
+  div.is-style-swt-button-secondary
+  .wp-element-button {
+  white-space: nowrap;
+  transition:
+    background var(--wp--custom--transition--normal),
+    border var(--wp--custom--transition--normal),
+    color var(--wp--custom--transition--normal);
+}
+
+:root :where(.wp-element-button, .wp-block-button__link),
+div.is-style-swt-button-secondary .wp-element-button {
+  padding: 1em 2.875em;
+}
+
+/* Outline button appearance */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link),
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  padding: calc(1em - 1px) calc(2.875em - 1px);
+  color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+/* Default button focus, active, and hover states */
+:root :where(.wp-element-button, .wp-block-button__link):focus,
+:root :where(.wp-element-button, .wp-block-button__link):active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 75%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root :where(.wp-element-button, .wp-block-button__link):hover {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+/* Outline button focus, active, and hover states */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):focus,
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):active {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+  border-color: var(--wp--preset--color--dark-blue);
+}
+
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: var(--wp--preset--color--primary);
+}
+
+/* Secondary button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: transparent;
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--dark-blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+/* Inverse button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--dark-blue);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:active {
+  color: var(--wp--preset--color--white);
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--surface);
+}
+
+/**
+ * @file media-text.css
+ * --- Media & Text block styles ---
+ */
+
+.wp-block-media-text {
+  gap: var(--wp--preset--spacing--medium);
+}
+
+/**
+ * @file services-pricelist.css
+ * services-pricelist block styles
+ */
+
+:root .wp-block-ct-core-services-pricelist .ct-services-pricelist__table thead {
+  font-size: var(--wp--preset--font-size--x-small);
+  font-weight: var(--wp--custom--font-weight--regular);
+  color: var(--wp--preset--color--heading);
+  background-color: var(--wp--preset--color--outline);
+  border-bottom-width: 0;
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__group-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 60%,
+    var(--wp--preset--color--white)
+  );
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__subgroup-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 40%,
+    var(--wp--preset--color--white)
+  );
+}
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  background-color: var(--wp--preset--color--quaternary);
+}
+
+.wp-block-ct-core-services-pricelist
+  .wp-block-table.is-style-stripes
+  tbody
+  tr:nth-child(2n + 1) {
+  background-color: var(--wp--preset--color--background);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(1)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--heading);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--secondary);
+}
+
+/**
+ * @file slider.css
+ * --- Slider block styles ---
+ */
+
+:root {
+  --dot-spacing: 0.375rem;
+}
+
+.wp-block-spectra-slider-child .slide-content {
+  height: 100%;
+}
+
+.spectra-slider-navigation {
+  position: relative;
+  margin-top: var(--wp--preset--spacing--x-large);
+}
+
+.wp-block-spectra-slider .swiper-button-next svg,
+.wp-block-spectra-slider .swiper-button-prev svg {
+  width: var(--wp--preset--spacing--small) !important;
+  height: var(--wp--preset--spacing--small) !important;
+}
+
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-next {
+  left: calc(50% + (var(--wp--preset--spacing--medium) / 2));
+}
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-prev {
+  left: calc(50% - (var(--wp--preset--spacing--medium) * 2)) !important;
+}
+/**
+ * @file table.css
+ * --- Table block styles ---
+ */
+
+.wp-block-table thead th {
+  font-weight: var(--wp--custom--font-weight--regular);
+}

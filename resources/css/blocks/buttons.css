@@ -1,0 +1,128 @@
+/**
+ * @file buttons.css
+ * --- Buttons block styles ---
+ */
+
+/* Common styles for buttons */
+:root :where(.wp-element-button, .wp-block-button__link) {
+  background-color: var(--wp--preset--color--secondary);
+}
+
+/* Keep button labels on one line and animate visual state changes. */
+:root :where(.wp-element-button),
+:root
+  :where(.wp-block-button.is-style-outline .wp-block-button__link)
+  div.is-style-swt-button-secondary
+  .wp-element-button {
+  white-space: nowrap;
+  transition:
+    background var(--wp--custom--transition--normal),
+    border var(--wp--custom--transition--normal),
+    color var(--wp--custom--transition--normal);
+}
+
+:root :where(.wp-element-button, .wp-block-button__link),
+div.is-style-swt-button-secondary .wp-element-button {
+  padding: 1em 2.875em;
+}
+
+/* Outline button appearance */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link),
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  padding: calc(1em - 1px) calc(2.875em - 1px);
+  color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+/* Default button focus, active, and hover states */
+:root :where(.wp-element-button, .wp-block-button__link):focus,
+:root :where(.wp-element-button, .wp-block-button__link):active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 75%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root :where(.wp-element-button, .wp-block-button__link):hover {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+/* Outline button focus, active, and hover states */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):focus,
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):active {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+  border-color: var(--wp--preset--color--dark-blue);
+}
+
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: var(--wp--preset--color--primary);
+}
+
+/* Secondary button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: transparent;
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--dark-blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+/* Inverse button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--dark-blue);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:active {
+  color: var(--wp--preset--color--white);
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--surface);
+}

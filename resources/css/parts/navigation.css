@@ -1,0 +1,115 @@
+/**
+ * @file navigation.css
+ * --- Navigation ---
+ */
+
+/* Force mobile state up to 919px fo responsive navigation */
+.wp-block-navigation__responsive-container-open {
+  display: none !important;
+}
+
+/* Show the hamburger button that WordPress hides after 920px */
+@media (max-width: 919px) {
+  /* Hide the desktop container that WordPress tries to show after 920px */
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: none !important;
+  }
+  /* Show the hamburger button that WordPress hides after 920px */
+  .wp-block-navigation__responsive-container-open {
+    display: flex !important;
+  }
+}
+
+/* Activate desktop view only after 919px */
+@media (min-width: 920px) {
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    z-index: auto;
+  }
+
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display: none !important;
+  }
+}
+/** Desktop menu */
+
+.wp-block-navigation:not(.has-background)
+  .wp-block-navigation__submenu-container {
+  padding: 0 var(--wp--preset--spacing--xx-small);
+  min-width: 320px !important;
+  max-height: calc(100vh - var(--header-height, 70px) * 2);
+  overflow-y: auto !important;
+}
+
+.wp-block-navigation__container
+  .has-child
+  .wp-block-navigation__submenu-container
+  .wp-block-navigation-item:not(:last-of-type) {
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+/** Overlay menu */
+.wp-block-navigation__overlay-container .wp-block-navigation__container {
+  gap: 1rem;
+}
+/* Chenge the way navigation is displayed in overlay menu for submenus */
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0; /* Ensure there is no spacing between elements */
+}
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(1),
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(2) {
+  flex: 0 0 auto;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(3) {
+  width: 100%;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation
+  .wp-block-navigation__submenu-container {
+  position: relative;
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item {
+  justify-content: center;
+  width: 100%;
+  padding-bottom: var(--wp--preset--spacing--xxx-small);
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  .wp-block-navigation-item
+  .wp-block-navigation-item__content {
+  align-items: center;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+  left: auto;
+}

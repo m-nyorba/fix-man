@@ -1,0 +1,25 @@
+/**
+ * @file overlay-menu.css
+ * --- Overlay Menu template-part styles ---
+ */
+/* --- // Fix for proper submenu functionality on mobile devices(overlay menu) --- */
+/* --- СТАТИЧНЕ ПРИХОВУВАННЯ ПІДМЕНЮ ЗА ДАТА-АТРИБУТОМ --- */
+/* 1. За замовчуванням та при станi "closed" — підменю приховано */
+/* html body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu, */
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle[data-submenu-state="closed"]
+  ~ .wp-block-navigation-submenu,
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle:not([data-submenu-state="open"])
+  ~ .wp-block-navigation-submenu {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: opacity var(--wp--custom--transition--normal);
+}

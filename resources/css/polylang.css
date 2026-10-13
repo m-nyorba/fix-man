@@ -1,0 +1,83 @@
+/**
+ * @file polylang.css
+ * --- Polylang template-part styles ---
+ */
+
+/* Styles for the dropdown button */
+.pll-switcher-select {
+  appearance: base-select;
+  font-size: var(--wp--preset--font-size--small);
+  text-transform: uppercase;
+  color: var(--wp--preset--color--white);
+  padding: var(--wp--preset--spacing--xx-small);
+  border-width: 0px;
+  background: var(--wp--preset--color--foreground);
+  cursor: pointer;
+}
+
+/* Styles for the dropdown menu itself */
+.pll-switcher-select::picker(select) {
+  /* The background must be set explicitly for base-select dropdowns,
+     otherwise the dropdown may inherit the operating system's colors */
+  background-color: var(--wp--preset--color--foreground);
+}
+
+/* Styles for <option> elements */
+.pll-switcher-select option {
+  padding: var(--wp--preset--spacing--xx-small);
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--wp--custom--transition--normal),
+    color var(--wp--custom--transition--normal);
+}
+
+/* Hover, focus, and active states for options */
+/* IMPORTANT: For native options in the new API, use a combination of
+  :hover and :checked to explicitly override the system blue color */
+.pll-switcher-select option:hover,
+.pll-switcher-select option:focus,
+.pll-switcher-select option:checked {
+  background-color: var(--wp--preset--color--dark-blue);
+  color: var(--wp--preset--color--white);
+}
+
+/* Styles for the arrow icon */
+.pll-switcher-select::picker-icon {
+  margin-top: 2px;
+  font-size: 0.85em;
+  color: var(--wp--preset--color--white);
+  transition: transform var(--wp--custom--transition--normal);
+}
+
+/* Rotate the arrow icon when the dropdown is open */
+.pll-switcher-select:open::picker-icon {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  transform: rotate(180deg);
+}
+
+/* Styles for the list of languages */
+ul.wp-block-polylang-language-switcher {
+  font-size: var(--wp--preset--font-size--small);
+  text-transform: uppercase;
+  line-height: var(--wp--custom--line-height--small);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.wp-block-polylang-language-switcher li a {
+  color: var(--wp--preset--color--white);
+  text-decoration: none;
+}
+
+ul.wp-block-polylang-language-switcher li.current-lang a {
+  color: var(--wp--preset--color--secondary);
+}
+
+ul.wp-block-polylang-language-switcher li a:hover,
+ul.wp-block-polylang-language-switcher li a:focus,
+ul.wp-block-polylang-language-switcher li a:active {
+  color: var(--wp--preset--color--secondary);
+}

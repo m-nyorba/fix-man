@@ -1,0 +1,85 @@
+/**
+ * @file services-pricelist.css
+ * services-pricelist block styles
+ */
+
+:root .wp-block-ct-core-services-pricelist .ct-services-pricelist__table thead {
+  font-size: var(--wp--preset--font-size--x-small);
+  font-weight: var(--wp--custom--font-weight--regular);
+  color: var(--wp--preset--color--heading);
+  background-color: var(--wp--preset--color--outline);
+  border-bottom-width: 0;
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__group-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 60%,
+    var(--wp--preset--color--white)
+  );
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__subgroup-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 40%,
+    var(--wp--preset--color--white)
+  );
+}
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  background-color: var(--wp--preset--color--quaternary);
+}
+
+.wp-block-ct-core-services-pricelist
+  .wp-block-table.is-style-stripes
+  tbody
+  tr:nth-child(2n + 1) {
+  background-color: var(--wp--preset--color--background);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(1)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--heading);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--secondary);
+}

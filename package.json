@@ -1,0 +1,21 @@
+{
+  "name": "fix-man",
+  "version": "1.0.0",
+  "description": "Fix Man Theme",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm:dev:css\" \"npm:dev:css-editor\" \"npm:dev:js\"",
+    "dev:css": "postcss resources/css/style.css -o style.css --watch",
+    "dev:css-editor": "postcss ./resources/css/editor-style.css -o ./assets/css/editor-style.css -w",
+    "dev:js": "mkdir -p assets/js && cp resources/js/header-scroll.js assets/js/header-scroll.js",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "NODE_ENV=production postcss resources/css/style.css -o style.css",
+    "build:js": "mkdir -p assets/js && cp resources/js/header-scroll.js assets/js/header-scroll.js",
+    "lint": "stylelint 'resources/css/**/*.css'",
+    "lint:fix": "stylelint 'resources/css/**/*.css' --fix",
+    "lint:js": "eslint resources/js/",
+    "lint:js:fix": "eslint resources/js/ --fix",
+    "format": "prettier --write 'resources/**/*.{css,js}'",
+    "clean": "rm -f style.css && rm -rf assets/js/ dist/"
+  }
+}

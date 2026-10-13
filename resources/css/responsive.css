@@ -1,0 +1,11 @@
+/**
+ * @file responsive.css
+ * --- Responsive design ---
+ */
+
+/* --- # Add responsive classes --- */
+@media (max-width: 480px) {
+  .hide-on-480 {
+    display: none !important;
+  }
+}

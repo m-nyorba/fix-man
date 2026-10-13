@@ -1,0 +1,30 @@
+/**
+ * @file slider.css
+ * --- Slider block styles ---
+ */
+
+:root {
+  --dot-spacing: 0.375rem;
+}
+
+.wp-block-spectra-slider-child .slide-content {
+  height: 100%;
+}
+
+.spectra-slider-navigation {
+  position: relative;
+  margin-top: var(--wp--preset--spacing--x-large);
+}
+
+.wp-block-spectra-slider .swiper-button-next svg,
+.wp-block-spectra-slider .swiper-button-prev svg {
+  width: var(--wp--preset--spacing--small) !important;
+  height: var(--wp--preset--spacing--small) !important;
+}
+
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-next {
+  left: calc(50% + (var(--wp--preset--spacing--medium) / 2));
+}
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-prev {
+  left: calc(50% - (var(--wp--preset--spacing--medium) * 2)) !important;
+}

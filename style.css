@@ -1,0 +1,1199 @@
+/*
+Theme Name: Fix Man
+Author: mnjorba
+Description: Child theme for Spectra One with custom design tokens and local Manrope/Golos fonts.
+Version: 1.0.0
+Requires at least: 6.1
+Tested up to: 7.0
+Requires PHP: 7.4
+Template: spectra-one
+Text Domain: fix-man
+*/
+
+/* --- # Variables --- */
+/* @import "./variables.css"; */
+
+/* --- # Responsive design --- */
+/* @import "./responsive.css"; */
+
+/* --- # Base --- */
+
+/**
+ * @file base.css
+ * --- Base theme styles ---
+ */
+
+/* link styles */
+a:where(:not(.wp-element-button)) {
+  color: var(--wp--preset--color--primary);
+  transition: color var(--wp--custom--transition--normal);
+}
+:root
+  :where(a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):hover),
+:root
+  :where(a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):focus),
+:root
+  :where(
+    a:where(:not(.wp-element-button, .wp-block-social-link-anchor)):active
+  ) {
+  color: var(--wp--preset--color--secondary) !important;
+}
+
+:root :where(header a) {
+  text-decoration: none;
+}
+
+:root :where(footer a),
+:root
+  footer
+  .wp-block-navigation
+  .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  color: var(--wp--preset--color--primary);
+  /* color: var(--wp--preset--color--foreground); */
+  text-decoration: none;
+}
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:hover
+  ),
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:focus
+  ),
+:root
+  :where(
+    footer
+      .wp-block-navigation__container
+      .wp-block-navigation-item__content:active
+  ) {
+  color: var(--wp--preset--color--secondary) !important;
+}
+
+:root :where(img:not(header img, footer img)),
+:root
+  :where(
+    .wp-block-cover .has-background-dim:not([class*="-background-color"])
+  ) {
+  border-radius: var(--wp--custom--border-radius--large);
+}
+
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ) {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition:
+    color var(--wp--custom--transition--fast),
+    text-decoration-thickness var(--wp--custom--transition--fast);
+}
+
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):hover,
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):focus,
+:root
+  :where(
+    .wp-block-post-content
+      a:where(:not(.wp-element-button, .wp-block-navigation-item__content))
+  ):active {
+  text-decoration-thickness: 2px;
+}
+
+/** --- # Global padding --- */
+.wp-block-group.is-layout-flow.wp-block-group-is-layout-flow {
+  padding-left: 0;
+  padding-right: 0;
+}
+.has-global-padding > .alignfull {
+  padding-left: 0;
+  padding-right: 0;
+}
+.has-global-padding {
+  padding-right: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-left);
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* remove animations on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* --- # Components --- */
+/*
+ * @file cf7.css
+ * --- Contact Form 7 styles ---
+ */
+
+/* --- Form styles --- */
+.wpcf7-form {
+  padding: 0;
+}
+
+.wpcf7-form p {
+  margin: 0;
+  margin-top: 1.5rem;
+}
+
+/* --- label styles --- */
+.wpcf7-form label {
+  font-size: var(--wp--preset--font-size--x-small, 0.75rem);
+  color: var(--wp--preset--color--heading, #212529);
+  margin-left: var(--wp--preset--spacing--xxx-small, 0.25rem);
+}
+/* --- Input styles --- */
+.wpcf7-form .wpcf7-text,
+.wpcf7-form .wpcf7-email,
+.wpcf7-form .wpcf7-tel,
+.wpcf7-form .wpcf7-textarea,
+.wpcf7-form .wpcf7-select,
+.wpcf7-form .wpcf7-date,
+.wpcf7-file {
+  width: 100%;
+  padding: var(--wp--preset--spacing--x-small) var(--wp--preset--spacing--small);
+  margin-top: var(--wp--preset--spacing--x-small-plus, 0.75rem);
+  font-size: var(--wp--preset--font-size--small, 1rem);
+  border: 1px solid var(--wp--preset--color--tertiary, #eaecef);
+  border-radius: var(--wp--custom--border-radius--extra-large);
+  transition:
+    border-color var(--wp--custom--transition--slow),
+    box-shadow var(--wp--custom--transition--slow);
+  background: var(--wp--preset--color--background, #fcfcfd);
+  box-sizing: border-box;
+}
+
+/* --- Select styles --- */
+/* --- Add custom arrow for select --- */
+.wpcf7-form .wpcf7-select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23212529' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1.125rem;
+}
+
+/* --- File input styles --- */
+.codedropz-upload-inner > *:not(.codedropz-btn-wrap) {
+  display: none;
+}
+
+codedropz-upload-wrapper {
+  margin-top: var(--wp--preset--spacing--x-small-plus, 0.75rem);
+}
+
+.wpcf7 input[type="file"] {
+  padding: var(--wp--preset--spacing--x-small);
+  padding: 0;
+  cursor: pointer;
+}
+
+.wpcf7 input[type="file"]::file-selector-button,
+.codedropz-btn-wrap {
+  content: "PNG / JPG";
+  margin-right: var(--wp--preset--spacing--x-small);
+  padding: var(--wp--preset--spacing--x-small) var(--wp--preset--spacing--small)
+    var(--wp--preset--spacing--x-small) 2.25rem;
+  color: var(--wp--preset--color--content, #212529);
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid var(--wp--preset--color--tertiary, #eaecef);
+  border-radius: var(--wp--custom--border-radius--extra-large);
+  background-color: var(--wp--preset--color--white, #ffffff);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23212529' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v12'/%3E%3Cpath d='m7 8 5-5 5 5'/%3E%3Cpath d='M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4'/%3E%3C/svg%3E");
+  background-position: 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.125rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--wp--custom--transition--slow);
+}
+
+.wpcf7 input[type="file"]:hover::file-selector-button,
+.wpcf7 input[type="file"]:focus::file-selector-button {
+  border-color: var(--wp--preset--color--blue, #86acca);
+  box-shadow: var(--wp--preset--shadow--sh-1);
+}
+
+/* --- Focus effect on field --- */
+.wpcf7-form .wpcf7-text:focus,
+.wpcf7-form .wpcf7-email:focus,
+.wpcf7-form .wpcf7-tel:focus,
+.wpcf7-form .wpcf7-textarea:focus,
+.wpcf7-form .wpcf7-select:focus,
+.wpcf7-form .wpcf7-date:focus,
+codedropz-upload-inner:focus {
+  border-color: var(--wp--preset--color--blue, #86acca) !important;
+  box-shadow: var(--wp--preset--shadow--sh-1);
+  background: var(--wp--preset--color--white, #ffffff);
+  outline: none;
+}
+
+/* --- Textarea styles --- */
+.wpcf7-form .wpcf7-textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+/* --- Submit button styles --- */
+.wpcf7-form .wpcf7-submit {
+  background-color: var(--wp--preset--color--secondary);
+  border-radius: var(--wp--custom--border-radius--extra-large, 32px);
+  border-width: 0;
+  color: var(--wp--preset--color--white, #ffffff);
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding-top: calc(0.667em + 2px);
+  padding-right: calc(1.333em + 2px);
+  padding-bottom: calc(0.667em + 2px);
+  padding-left: calc(1.333em + 2px);
+  text-decoration: none;
+  text-transform: inherit;
+  width: 100%;
+
+  transition: var(--wp--custom--transition--slow);
+  cursor: pointer;
+}
+
+.wpcf7 .wpcf7-submit:disabled {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary),
+    var(--wp--preset--color--white) 35%
+  );
+}
+
+/* --- Hover effect on button --- */
+.wpcf7-form .wpcf7-submit:hover:not(:disabled) {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary),
+    var(--wp--preset--color--heading) 35%
+  );
+  box-shadow: var(--wp--preset--shadow--sh-1);
+}
+
+/* --- Error and success message styles --- */
+.wpcf7-form .wpcf7-not-valid-tip {
+  color: var(--wp--preset--color--error, #f44336);
+  font-size: var(--wp--preset--font-size--xs, 0.875rem);
+  margin-top: var(--wp--preset--spacing--xxs, 0.25rem);
+  display: block;
+}
+
+.wpcf7-form .wpcf7-not-valid {
+  border-color: var(--wp--preset--color--error, #f44336);
+}
+
+.wpcf7 form .wpcf7-spinner {
+  display: block;
+  margin: var(--wp--preset--spacing--xx-small) auto;
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--body),
+    transparent 25%
+  );
+  border: 1px solid #fff;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  border-color: var(--wp--preset--color--success, #4caf50) !important;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  border-color: var(--wp--preset--color--warning, #ffaa00) !important;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 0;
+  padding: var(--wp--preset--spacing--xx-small)
+    var(--wp--preset--spacing--small);
+  justify-content: center;
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--surface),
+    transparent 65%
+  );
+  border-radius: var(--wp--custom--border-radius--extra-large);
+}
+
+/* --- Mobile responsiveness --- */
+@media (max-width: 768px) {
+  .wpcf7-form {
+    padding: var(--wp--preset--spacing--xx-small);
+  }
+}
+
+.form-calc p {
+  display: flex;
+  gap: 0.375rem;
+}
+
+/* --- Container styles for rows --- */
+.form-row {
+  display: flex;
+  gap: 1.5rem; /* Gap for columns */
+  flex-wrap: wrap; /* Enable flex-wrap: wrap; for mobile */
+  /* margin-bottom: 1.5rem; */
+}
+
+/* --- Each field is the same width --- */
+.form-row .form-col {
+  flex: 1;
+  min-width: 250px; /* Minimum width for each field to fit in a column on mobile. */
+}
+
+/* --- We make the margins ourselves for the entire width of our column --- */
+.form-row input,
+.form-row select {
+  width: 100%;
+  box-sizing: border-box;
+}
+/**
+ * @file components.css
+ * --- Components styles ---
+ */
+
+.back-to-top {
+  position: fixed;
+  right: var(--wp--preset--spacing--small);
+  bottom: var(--wp--preset--spacing--small);
+  z-index: 90;
+  display: grid;
+  width: var(--wp--preset--spacing--large, 3rem);
+  height: var(--wp--preset--spacing--large, 3rem);
+  padding: 0;
+  place-items: center;
+  color: var(--wp--preset--color--white);
+  background: var(--wp--preset--color--foreground);
+  border: 0;
+  border-radius: var(--wp--custom--border-radius--xx-small);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: var(--wp--preset--shadow--ring);
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--wp--custom--transition--normal),
+    transform var(--wp--custom--transition--normal);
+}
+
+.back-to-top[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--wp--preset--color--secondary);
+}
+
+.back-to-top:focus-visible {
+  outline: 1px solid var(--wp--preset--color--secondary);
+  outline-offset: 3px;
+}
+
+.back-to-top span {
+  font-size: var(--wp--preset--font-size--large, 1.5rem);
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+}
+
+/** Popup styles */
+/** Popup Close Icon Positioning */
+.wp-block-spectra-modal-child-popup-close-icon.popup-top-right {
+  left: calc(100% - 15px);
+}
+/**
+ * @file polylang.css
+ * --- Polylang template-part styles ---
+ */
+
+/* Styles for the dropdown button */
+.pll-switcher-select {
+  -webkit-appearance: base-select;
+     -moz-appearance: base-select;
+          appearance: base-select;
+  font-size: var(--wp--preset--font-size--small);
+  text-transform: uppercase;
+  color: var(--wp--preset--color--white);
+  padding: var(--wp--preset--spacing--xx-small);
+  border-width: 0px;
+  background: var(--wp--preset--color--foreground);
+  cursor: pointer;
+}
+
+/* Styles for the dropdown menu itself */
+.pll-switcher-select::picker(select) {
+  /* The background must be set explicitly for base-select dropdowns,
+     otherwise the dropdown may inherit the operating system's colors */
+  background-color: var(--wp--preset--color--foreground);
+}
+
+/* Styles for <option> elements */
+.pll-switcher-select option {
+  padding: var(--wp--preset--spacing--xx-small);
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--wp--custom--transition--normal),
+    color var(--wp--custom--transition--normal);
+}
+
+/* Hover, focus, and active states for options */
+/* IMPORTANT: For native options in the new API, use a combination of
+  :hover and :checked to explicitly override the system blue color */
+.pll-switcher-select option:hover,
+.pll-switcher-select option:focus,
+.pll-switcher-select option:checked {
+  background-color: var(--wp--preset--color--dark-blue);
+  color: var(--wp--preset--color--white);
+}
+
+/* Styles for the arrow icon */
+.pll-switcher-select::picker-icon {
+  margin-top: 2px;
+  font-size: 0.85em;
+  color: var(--wp--preset--color--white);
+  transition: transform var(--wp--custom--transition--normal);
+}
+
+/* Rotate the arrow icon when the dropdown is open */
+.pll-switcher-select:open::picker-icon {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  transform: rotate(180deg);
+}
+
+/* Styles for the list of languages */
+ul.wp-block-polylang-language-switcher {
+  font-size: var(--wp--preset--font-size--small);
+  text-transform: uppercase;
+  line-height: var(--wp--custom--line-height--small);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.wp-block-polylang-language-switcher li a {
+  color: var(--wp--preset--color--white);
+  text-decoration: none;
+}
+
+ul.wp-block-polylang-language-switcher li.current-lang a {
+  color: var(--wp--preset--color--secondary);
+}
+
+ul.wp-block-polylang-language-switcher li a:hover,
+ul.wp-block-polylang-language-switcher li a:focus,
+ul.wp-block-polylang-language-switcher li a:active {
+  color: var(--wp--preset--color--secondary);
+}
+
+/**
+ * @file responsive.css
+ * --- Responsive design ---
+ */
+
+/* --- # Add responsive classes --- */
+@media (max-width: 480px) {
+  .hide-on-480 {
+    display: none !important;
+  }
+}
+/* --- # Template Parts --- */
+/* Header template-part styles. */
+
+header.wp-block-template-part {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 100;
+}
+header.wp-block-template-part > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-1);
+}
+
+header.wp-block-template-part.is-scrolled > .wp-block-group:first-child {
+  box-shadow: var(--wp--preset--shadow--sh-2);
+}
+
+header.wp-block-template-part.is-scrolled {
+  background: transparent;
+}
+
+header.wp-block-template-part .site-logo-img img {
+  width: 4rem;
+  transition: width var(--wp--custom--transition--slower);
+}
+header.wp-block-template-part.is-scrolled .site-logo-img img {
+  width: 3.5rem;
+}
+
+.yoast-breadcrumbs {
+  padding-top: var(--wp--preset--spacing--small);
+  max-width: var(--wp--style--global--wide-size);
+}
+
+/**
+ * @file navigation.css
+ * --- Navigation ---
+ */
+
+/* Force mobile state up to 919px fo responsive navigation */
+.wp-block-navigation__responsive-container-open {
+  display: none !important;
+}
+
+/* Show the hamburger button that WordPress hides after 920px */
+@media (max-width: 919px) {
+  /* Hide the desktop container that WordPress tries to show after 920px */
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: none !important;
+  }
+  /* Show the hamburger button that WordPress hides after 920px */
+  .wp-block-navigation__responsive-container-open {
+    display: flex !important;
+  }
+}
+
+/* Activate desktop view only after 919px */
+@media (min-width: 920px) {
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(
+      .is-menu-open
+    ) {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    z-index: auto;
+  }
+
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display: none !important;
+  }
+}
+/** Desktop menu */
+
+.wp-block-navigation:not(.has-background)
+  .wp-block-navigation__submenu-container {
+  padding: 0 var(--wp--preset--spacing--xx-small);
+  min-width: 320px !important;
+  max-height: calc(100vh - var(--header-height, 70px) * 2);
+  overflow-y: auto !important;
+}
+
+.wp-block-navigation__container
+  .has-child
+  .wp-block-navigation__submenu-container
+  .wp-block-navigation-item:not(:last-of-type) {
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+/** Overlay menu */
+.wp-block-navigation__overlay-container .wp-block-navigation__container {
+  gap: 1rem;
+}
+/* Chenge the way navigation is displayed in overlay menu for submenus */
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0; /* Ensure there is no spacing between elements */
+}
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(1),
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(2) {
+  flex: 0 0 auto;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item.has-child
+  > :nth-child(3) {
+  width: 100%;
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation
+  .wp-block-navigation__submenu-container {
+  position: relative;
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  > .wp-block-navigation-item {
+  justify-content: center;
+  width: 100%;
+  padding-bottom: var(--wp--preset--spacing--xxx-small);
+  border-bottom: 1px solid var(--wp--preset--color--blue);
+}
+
+.wp-block-navigation__overlay-container
+  .wp-block-navigation__container
+  .wp-block-navigation-item
+  .wp-block-navigation-item__content {
+  align-items: center;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+  left: auto;
+}
+
+/**
+ * @file overlay-menu.css
+ * --- Overlay Menu template-part styles ---
+ */
+/* --- // Fix for proper submenu functionality on mobile devices(overlay menu) --- */
+/* --- СТАТИЧНЕ ПРИХОВУВАННЯ ПІДМЕНЮ ЗА ДАТА-АТРИБУТОМ --- */
+/* 1. За замовчуванням та при станi "closed" — підменю приховано */
+/* html body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu, */
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle[data-submenu-state="closed"]
+  ~ .wp-block-navigation-submenu,
+html
+  body
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-submenu__toggle:not([data-submenu-state="open"])
+  ~ .wp-block-navigation-submenu {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: opacity var(--wp--custom--transition--normal);
+}
+/**
+ * @file content.css
+ * --- Content template-part styles ---
+ */
+
+/* Hide page banner  */
+/* .wp-block-group.swt-block-page-banner-group, */
+.wp-block-group.swt-block-featured-image {
+  display: none;
+}
+
+/* Hide post author on single page */
+:where(body.single .wp-block-group):has(.wp-block-post-author) {
+  display: none;
+}
+
+/* Fix for margin on main content with post banner */
+:root
+  :where(
+    body:not(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--medium) * -1) !important;
+}
+
+/* :root
+  :where(
+    body:where(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--small) * -1) !important;
+} */
+
+/* Fix for duplicate margin on main content */
+/* :root :where(body.single .entry-content) {
+  margin-block-start: 0;
+} */
+:root :where(body .entry-content) {
+  margin-block-start: var(--wp--preset--spacing--large) !important;
+}
+
+/* :root :where(.is-layout-flow) > .entry-content:first-child {
+  margin-top: 2rem;
+} */
+
+/** Fix for alignright/alignleft. */
+.is-layout-constrained > .alignright {
+  float: right;
+  margin-inline-end: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignleft {
+  float: left;
+  margin-inline-start: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignright img,
+.is-layout-constrained > .alignleft img {
+  max-width: 100%;
+  height: auto;
+}
+
+.is-layout-constrained::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 600px) {
+  .is-layout-constrained > .alignright,
+  .is-layout-constrained > .alignleft {
+    float: none;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
+
+/* Fix for columns 3 on tablet for posts page(blog) */
+@media (min-width: 600px) and (max-width: 1279px) {
+  .columns-3.wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Footer template-part styles. */
+
+footer.wp-block-template-part {
+  margin-top: 0;
+  /* margin-block-start: var(--wp--preset--spacing--x-small); */
+}
+
+footer .site-logo-img img,
+footer .wp-block-site-logo img,
+footer .wp-block-site-logo.is-default-size img {
+  width: 4rem;
+}
+
+footer .wp-block-navigation__container {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
+/* Hide submenu icon on hover. */
+footer
+  .wp-block-navigation-item.open-on-click
+  .wp-block-navigation-submenu__toggle {
+  padding-right: 0;
+}
+
+footer .wp-block-navigation .wp-block-navigation__submenu-icon {
+  display: none;
+}
+
+/* --- # Blocks --- */
+
+/**
+ * @file accordion.css
+ * --- Accordion block styles ---
+ */
+
+.wp-block-accordion .wp-block-accordion-item {
+  background-color: var(--wp--preset--color--quaternary);
+  border: 1px solid var(--wp--preset--color--tetriary);
+  padding: var(--wp--preset--spacing--small);
+  border-radius: var(--wp--custom--border-radius--extra-large);
+  transition: background-color var(--wp--custom--transition--normal);
+}
+
+.wp-block-accordion
+  .wp-block-accordion-item
+  .wp-block-accordion-heading__toggle-title {
+  /* color: var(--wp--preset--color--body); */
+  font-weight: var(--wp--custom--font-weight--regular);
+  font-size: var(--wp--preset--font-size--medium);
+}
+.wp-block-accordion .wp-block-accordion-item.is-open {
+  background-color: var(--wp--preset--color--surface);
+}
+
+.wp-block-accordion .wp-block-accordion-heading__toggle-icon {
+  font-size: var(--wp--preset--font-size--x-large);
+}
+
+/**
+ * @file buttons.css
+ * --- Buttons block styles ---
+ */
+
+/* Common styles for buttons */
+:root :where(.wp-element-button, .wp-block-button__link) {
+  background-color: var(--wp--preset--color--secondary);
+}
+
+/* Keep button labels on one line and animate visual state changes. */
+:root :where(.wp-element-button),
+:root
+  :where(.wp-block-button.is-style-outline .wp-block-button__link)
+  div.is-style-swt-button-secondary
+  .wp-element-button {
+  white-space: nowrap;
+  transition:
+    background var(--wp--custom--transition--normal),
+    border var(--wp--custom--transition--normal),
+    color var(--wp--custom--transition--normal);
+}
+
+:root :where(.wp-element-button, .wp-block-button__link),
+div.is-style-swt-button-secondary .wp-element-button {
+  padding: 1em 2.875em;
+}
+
+/* Outline button appearance */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link),
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  padding: calc(1em - 1px) calc(2.875em - 1px);
+  color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+/* Default button focus, active, and hover states */
+:root :where(.wp-element-button, .wp-block-button__link):focus,
+:root :where(.wp-element-button, .wp-block-button__link):active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 75%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root :where(.wp-element-button, .wp-block-button__link):hover {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--secondary) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+/* Outline button focus, active, and hover states */
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):focus,
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):active {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+  border-color: var(--wp--preset--color--dark-blue);
+}
+
+:root :where(.wp-block-button.is-style-outline .wp-block-button__link):hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: var(--wp--preset--color--primary);
+}
+
+/* Secondary button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--primary);
+  border-color: transparent;
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:active {
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--dark-blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-secondary)
+  .wp-block-button__link:hover {
+  color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--dark-blue);
+}
+
+/* Inverse button appearance and interactive states */
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link {
+  color: var(--wp--preset--color--dark-blue);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--outline);
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:focus,
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:active {
+  color: var(--wp--preset--color--white);
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--blue) 88%,
+    var(--wp--preset--color--black)
+  );
+}
+
+:root
+  .wp-block-button:where(.is-style-swt-button-inverse)
+  .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--surface);
+}
+
+/**
+ * @file columns.css
+ * --- Columns block styles ---
+ */
+
+/* --- # Responsive Layout --- */
+/* :root :where(body:not(.archive, .single, .blog) .wp-block-columns) {
+	flex-wrap: wrap !important;
+} */
+
+/* @media (min-width: 1280px) {
+	.wp-block-columns {
+		flex-wrap: nowrap !important;
+	}
+} */
+
+@media (min-width: 921px) and (max-width: 1279px) {
+  .wp-block-columns {
+    flex-wrap: wrap !important;
+  }
+
+  .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+    flex-basis: 29.33%;
+  }
+}
+
+@media (min-width: 782px) and (max-width: 920px) {
+  .wp-block-columns {
+    flex-wrap: wrap !important;
+  }
+
+  .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+    flex-basis: 47% !important;
+  }
+}
+
+/**
+ * @file cta.css
+ * --- CTA block styles ---
+ */
+
+.wp-block-cta.wp-block-cover .wp-block-cover__background {
+  backdrop-filter: blur(47px);
+  opacity: 1 !important;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/**
+ * @file list.css
+ * --- List block styles ---
+ */
+
+.entry-content .wp-block-list {
+  padding-left: var(--wp--preset--spacing--small);
+  padding-left: var(--wp--preset--spacing--medium);
+}
+
+.entry-content .wp-block-list ul,
+.entry-content .wp-block-list ol {
+  margin-block-start: var(--wp--preset--spacing--xxx-small);
+}
+
+.entry-content .wp-block-list li {
+  margin-bottom: var(--wp--preset--spacing--x-small-plus);
+}
+
+.entry-content .wp-block-list li::marker {
+  /* color: var(--wp--preset--color--secondary);
+	color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--foreground); */
+  font-weight: var(--wp--custom--font-weight--semi-bold);
+}
+
+/**
+ * @file media-text.css
+ * --- Media & Text block styles ---
+ */
+
+.wp-block-media-text {
+  gap: var(--wp--preset--spacing--medium);
+}
+
+/**
+ * @file services-pricelist.css
+ * services-pricelist block styles
+ */
+
+:root .wp-block-ct-core-services-pricelist .ct-services-pricelist__table thead {
+  font-size: var(--wp--preset--font-size--x-small);
+  font-weight: var(--wp--custom--font-weight--regular);
+  color: var(--wp--preset--color--heading);
+  background-color: var(--wp--preset--color--outline);
+  border-bottom-width: 0;
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__group-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 60%,
+    var(--wp--preset--color--white)
+  );
+}
+
+:root
+  .wp-block-ct-core-services-pricelist
+  .ct-services-pricelist__table
+  tbody
+  tr.ct-services-pricelist__subgroup-row
+  td {
+  background-color: color-mix(
+    in srgb,
+    var(--wp--preset--color--outline) 40%,
+    var(--wp--preset--color--white)
+  );
+}
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  background-color: var(--wp--preset--color--quaternary);
+}
+
+.wp-block-ct-core-services-pricelist
+  .wp-block-table.is-style-stripes
+  tbody
+  tr:nth-child(2n + 1) {
+  background-color: var(--wp--preset--color--background);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(1)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--heading);
+}
+
+:root
+  :where(
+    .wp-block-ct-core-services-pricelist
+      .ct-services-pricelist__table
+      tbody
+      tr
+      td:nth-child(2n)
+  ):not(
+    .ct-services-pricelist__group-row,
+    .ct-services-pricelist__subgroup-row
+  ) {
+  color: var(--wp--preset--color--secondary);
+}
+
+/**
+ * @file slider.css
+ * --- Slider block styles ---
+ */
+
+:root {
+  --dot-spacing: 0.375rem;
+}
+
+.wp-block-spectra-slider-child .slide-content {
+  height: 100%;
+}
+
+.spectra-slider-navigation {
+  position: relative;
+  margin-top: var(--wp--preset--spacing--x-large);
+}
+
+.wp-block-spectra-slider .swiper-button-next svg,
+.wp-block-spectra-slider .swiper-button-prev svg {
+  width: var(--wp--preset--spacing--small) !important;
+  height: var(--wp--preset--spacing--small) !important;
+}
+
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-next {
+  left: calc(50% + (var(--wp--preset--spacing--medium) / 2));
+}
+.wp-block-spectra-slider[class*="wp-block"] .swiper-button-prev {
+  left: calc(50% - (var(--wp--preset--spacing--medium) * 2)) !important;
+}
+/**
+ * @file table.css
+ * --- Table block styles ---
+ */
+
+.wp-block-table thead th {
+  font-weight: var(--wp--custom--font-weight--regular);
+}

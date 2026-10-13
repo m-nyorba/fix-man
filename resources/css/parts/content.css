@@ -1,0 +1,90 @@
+/**
+ * @file content.css
+ * --- Content template-part styles ---
+ */
+
+/* Hide page banner  */
+/* .wp-block-group.swt-block-page-banner-group, */
+.wp-block-group.swt-block-featured-image {
+  display: none;
+}
+
+/* Hide post author on single page */
+:where(body.single .wp-block-group):has(.wp-block-post-author) {
+  display: none;
+}
+
+/* Fix for margin on main content with post banner */
+:root
+  :where(
+    body:not(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--medium) * -1) !important;
+}
+
+/* :root
+  :where(
+    body:where(.wp-singular.page) .wp-block-group
+  ).swt-block-post-banner-group {
+  margin-bottom: calc(var(--wp--preset--spacing--small) * -1) !important;
+} */
+
+/* Fix for duplicate margin on main content */
+/* :root :where(body.single .entry-content) {
+  margin-block-start: 0;
+} */
+:root :where(body .entry-content) {
+  margin-block-start: var(--wp--preset--spacing--large) !important;
+}
+
+/* :root :where(.is-layout-flow) > .entry-content:first-child {
+  margin-top: 2rem;
+} */
+
+/** Fix for alignright/alignleft. */
+.is-layout-constrained > .alignright {
+  float: right;
+  margin-inline-end: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignleft {
+  float: left;
+  margin-inline-start: max(
+    0px,
+    calc((100% - var(--wp--style--global--content-size)) / 2)
+  );
+  max-width: min(50%, var(--wp--style--global--content-size));
+  box-sizing: border-box;
+}
+
+.is-layout-constrained > .alignright img,
+.is-layout-constrained > .alignleft img {
+  max-width: 100%;
+  height: auto;
+}
+
+.is-layout-constrained::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 600px) {
+  .is-layout-constrained > .alignright,
+  .is-layout-constrained > .alignleft {
+    float: none;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
+
+/* Fix for columns 3 on tablet for posts page(blog) */
+@media (min-width: 600px) and (max-width: 1279px) {
+  .columns-3.wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,44 @@
+/*
+Theme Name: Fix Man
+Author: mnjorba
+Description: Child theme for Spectra One with custom design tokens and local Manrope/Golos fonts.
+Version: 1.0.0
+Requires at least: 6.1
+Tested up to: 7.0
+Requires PHP: 7.4
+Template: spectra-one
+Text Domain: fix-man
+*/
+
+/* --- # Variables --- */
+/* @import "./variables.css"; */
+
+/* --- # Responsive design --- */
+/* @import "./responsive.css"; */
+
+/* --- # Base --- */
+@import "./base.css";
+
+/* --- # Components --- */
+@import "./cf7.css";
+@import "./components.css";
+@import "./polylang.css";
+@import "./responsive.css";
+
+/* --- # Template Parts --- */
+@import "./parts/header.css";
+@import "./parts/navigation.css";
+@import "./parts/overlay-menu-fix.css";
+@import "./parts/content.css";
+@import "./parts/footer.css";
+
+/* --- # Blocks --- */
+@import "./blocks/accordion.css";
+@import "./blocks/buttons.css";
+@import "./blocks/columns.css";
+@import "./blocks/cta.css";
+@import "./blocks/list.css";
+@import "./blocks/media-text.css";
+@import "./blocks/services-pricelist.css";
+@import "./blocks/slider.css";
+@import "./blocks/table.css";
