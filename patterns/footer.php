@@ -19,7 +19,7 @@ $images = array(
 <figure class="wp-block-image size-full site-logo-img"><a href="/"><img src="<?php echo esc_url( $images[0] ); ?>" alt="home" class="wp-image-10"/></a></figure>
 <!-- /wp:image -->
 
-<!-- wp:navigation {"ref":151,"submenuVisibility":"click","overlayMenu":"never","style":{"spacing":[]},"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"center","orientation":"horizontal"},"SWTHideMob":true} /--></div>
+<!-- wp:navigation {"ref":29,"submenuVisibility":"click","overlayMenu":"never","style":{"spacing":[]},"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"center","orientation":"horizontal"},"SWTHideMob":true} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xx-small","padding":{"right":"var:preset|spacing|0","left":"var:preset|spacing|0"},"margin":{"top":"var:preset|spacing|x-small-plus","bottom":"var:preset|spacing|x-small-plus"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
@@ -48,7 +48,7 @@ $images = array(
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xx-small","padding":{"right":"var:preset|spacing|0","left":"var:preset|spacing|0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
-<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--0);padding-left:var(--wp--preset--spacing--0)"><!-- wp:navigation {"ref":152,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|xx-small"}},"fontSize":"x-small"} /--></div>
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--0);padding-left:var(--wp--preset--spacing--0)"><!-- wp:navigation {"ref":30,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|xx-small"}},"fontSize":"x-small"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
@@ -58,7 +58,7 @@ $images = array(
 <p class="has-text-align-center has-x-small-font-size"><?php printf( __( '© %d', 'fix-man' ), date_i18n( 'Y' ) ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:site-title {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"x-small"} /--></div>
+<!-- wp:site-title {"level":0,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"x-small"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
