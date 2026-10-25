@@ -25,6 +25,10 @@ a:where(:not(.wp-element-button)) {
 
 :root :where(footer a),
 :root
+  .entry-content
+  .wp-block-navigation
+  .wp-block-navigation-item__content.wp-block-navigation-item__content,
+:root
   footer
   .wp-block-navigation
   .wp-block-navigation-item__content.wp-block-navigation-item__content {

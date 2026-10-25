@@ -38,6 +38,10 @@ a:where(:not(.wp-element-button)) {
 
 :root :where(footer a),
 :root
+  .entry-content
+  .wp-block-navigation
+  .wp-block-navigation-item__content.wp-block-navigation-item__content,
+:root
   footer
   .wp-block-navigation
   .wp-block-navigation-item__content.wp-block-navigation-item__content {
@@ -414,7 +418,7 @@ footer .wp-block-site-logo.is-default-size img {
 
 footer .wp-block-navigation__container {
   -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
+  column-gap: 0.75rem;
 }
 
 /* Hide submenu icon on hover. */

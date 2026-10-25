@@ -45,6 +45,10 @@ a:where(:not(.wp-element-button)) {
 
 :root :where(footer a),
 :root
+  .entry-content
+  .wp-block-navigation
+  .wp-block-navigation-item__content.wp-block-navigation-item__content,
+:root
   footer
   .wp-block-navigation
   .wp-block-navigation-item__content.wp-block-navigation-item__content {
@@ -188,8 +192,8 @@ html {
 /* --- Add custom arrow for select --- */
 .wpcf7-form .wpcf7-select {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding-right: 3rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23212529' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-position: right 1rem center;
@@ -448,8 +452,8 @@ codedropz-upload-inner:focus {
 /* Styles for the dropdown button */
 .pll-switcher-select {
   -webkit-appearance: base-select;
-     -moz-appearance: base-select;
-          appearance: base-select;
+  -moz-appearance: base-select;
+  appearance: base-select;
   font-size: var(--wp--preset--font-size--small);
   text-transform: uppercase;
   color: var(--wp--preset--color--white);
@@ -817,7 +821,7 @@ footer .wp-block-site-logo.is-default-size img {
 
 footer .wp-block-navigation__container {
   -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
+  column-gap: 0.75rem;
 }
 
 /* Hide submenu icon on hover. */
@@ -859,6 +863,18 @@ footer .wp-block-navigation .wp-block-navigation__submenu-icon {
 
 .wp-block-accordion .wp-block-accordion-heading__toggle-icon {
   font-size: var(--wp--preset--font-size--x-large);
+}
+
+/**
+ * @file blockquote.css
+ * --- Blockquote template-part styles ---
+ */
+
+.wp-block-quote {
+  padding-top: var(--wp--preset--spacing--x-small);
+  padding-bottom: var(--wp--preset--spacing--x-small);
+  color: var(--wp--preset--color--primary);
+  background-color: color-mix(in srgb, currentColor 5%, transparent 95%);
 }
 
 /**

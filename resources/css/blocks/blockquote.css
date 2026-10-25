@@ -1,0 +1,11 @@
+/**
+ * @file blockquote.css
+ * --- Blockquote template-part styles ---
+ */
+
+.wp-block-quote {
+  padding-top: var(--wp--preset--spacing--x-small);
+  padding-bottom: var(--wp--preset--spacing--x-small);
+  color: var(--wp--preset--color--primary);
+  background-color: color-mix(in srgb, currentColor 5%, transparent 95%);
+}

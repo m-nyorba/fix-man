@@ -34,6 +34,7 @@ Text Domain: fix-man
 
 /* --- # Blocks --- */
 @import "./blocks/accordion.css";
+@import "./blocks/blockquote.css";
 @import "./blocks/buttons.css";
 @import "./blocks/columns.css";
 @import "./blocks/cta.css";
