@@ -19,7 +19,7 @@ $images = array(
 <figure class="wp-block-image size-full site-logo-img"><a href="/uk"><img src="<?php echo esc_url( $images[0] ); ?>" alt="Home" class="wp-image-193"/></a></figure>
 <!-- /wp:image -->
 
-<!-- wp:navigation {"ref":333,"textColor":"white","overlay":"overlay-ua","icon":"menu","overlayBackgroundColor":"dark-blue","style":{"layout":{"selfStretch":"fill","flexSize":null},"spacing":{"blockGap":"var:preset|spacing|x-small"}},"fontSize":"small","layout":{"type":"flex","justifyContent":"right"},"SWTHideMob":true} /-->
+<!-- wp:navigation {"ref":4,"textColor":"white","overlay":"overlay-ua","icon":"menu","overlayBackgroundColor":"dark-blue","style":{"layout":{"selfStretch":"fill","flexSize":null},"spacing":{"blockGap":"var:preset|spacing|x-small"}},"fontSize":"small","layout":{"type":"flex","justifyContent":"right"},"SWTHideMob":true} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"},"SWTHideTab":true,"SWTHideMob":true} -->
 <div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
