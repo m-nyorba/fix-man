@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fix Man 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/fix-man\n"
-"POT-Creation-Date: 2026-09-28T18:48:58+03:00\n"
-"PO-Revision-Date: 2026-09-28 18:55+0300\n"
+"POT-Creation-Date: 2026-10-25T12:19:27+00:00\n"
+"PO-Revision-Date: 2026-10-25 14:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: MNor <mnyorba@gmail.com>\n"
 "Language: uk\n"
@@ -36,6 +36,14 @@ msgstr ""
 msgid "Fix-Man"
 msgstr ""
 
+#: inc/patterns.php:20
+msgid "Fix-Man UA"
+msgstr ""
+
+#: inc/patterns.php:24
+msgid "Fix-Man RU"
+msgstr ""
+
 #: patterns/blog-page-content.php:3
 msgctxt "Pattern title"
 msgid "Blog Page Content"
@@ -56,7 +64,7 @@ msgctxt "Pattern title"
 msgid "Footer (UA)"
 msgstr ""
 
-#: patterns/footer-uk.php:54 patterns/footer.php:54
+#: patterns/footer-uk.php:58 patterns/footer.php:82
 #, php-format
 msgid "© %d"
 msgstr ""
@@ -65,6 +73,14 @@ msgstr ""
 msgctxt "Pattern title"
 msgid "Footer (Default RU)"
 msgstr ""
+
+#: patterns/footer.php:58
+msgid "Scope of operations: Kyiv"
+msgstr "Географія робіт: Київ"
+
+#: patterns/footer.php:71
+msgid "Kyiv Oblast"
+msgstr "Київська область"
 
 #: patterns/header-uk.php:3
 msgctxt "Pattern title"
@@ -80,6 +96,11 @@ msgctxt "Pattern title"
 msgid "Header (Default RU)"
 msgstr ""
 
+#: patterns/hero-page.php:3
+msgctxt "Pattern title"
+msgid "Hero page title"
+msgstr ""
+
 #: patterns/hero-single.php:3
 msgctxt "Pattern title"
 msgid "Hero single title"
@@ -90,19 +111,19 @@ msgctxt "Pattern title"
 msgid "Latest Post"
 msgstr ""
 
-#: patterns/post-latest.php:13
+#: patterns/post-latest.php:28
 msgid "Useful Articles"
 msgstr "Корисні статті"
 
-#: patterns/post-latest.php:17
+#: patterns/post-latest.php:32
 msgid "Tips on using and caring for home appliances."
 msgstr "Поради з експлуатації та догляду за побутовою технікою."
 
-#: patterns/post-latest.php:28 patterns/template-index.php:51
+#: patterns/post-latest.php:43 patterns/template-index.php:51
 msgid "Read article"
 msgstr "Читати статтю"
 
-#: patterns/post-latest.php:34
+#: patterns/post-latest.php:49
 msgid "View all articles"
 msgstr "Дивитись всі статті"
 
