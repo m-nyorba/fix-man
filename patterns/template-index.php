@@ -14,10 +14,6 @@ ob_start();
 if ( is_singular() ) {
 	echo '<!-- wp:post-title {"textAlign":"center","level":1} /-->';
 } elseif ( is_home() ) {
-	$entry_header_title = $page_for_posts_id
-		? esc_html( get_the_title( $page_for_posts_id ) )
-		: esc_html__( 'Blog', 'fix-man' );
-	echo '<h1 class="wp-block-post-title alignwide">' . esc_html( $entry_header_title ) . '</h1>';
 	echo '<!-- wp:pattern {"slug":"fix-man/blog-page-content"} /-->';
 } elseif ( is_404() ) {
 	echo '<!-- wp:heading {"level":1} -->';
