@@ -4,9 +4,9 @@ if ( ! function_exists( 'pll_the_languages' ) ) {
 }
 
 add_filter(
-	'pll_the_languages_args',
-	function ( $args ) {
-		$args['display_names_as'] = 'slug';
-		return $args;
+	'pll_language_switcher_settings',
+	function ( $settings ) {
+		$settings['show_labels'] = 'codes';
+		return $settings;
 	}
 );
