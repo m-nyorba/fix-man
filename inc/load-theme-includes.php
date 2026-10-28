@@ -6,6 +6,12 @@
  * recursive loading.
  */
 
+if ( defined( 'FIX_MAN_THEME_INCLUDES_LOADED' ) ) {
+	return;
+}
+
+define( 'FIX_MAN_THEME_INCLUDES_LOADED', true );
+
 $fix_man_inc_files = glob( get_stylesheet_directory() . '/inc/*.php' );
 
 if ( $fix_man_inc_files ) {
